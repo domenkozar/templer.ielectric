@@ -45,6 +45,7 @@ setup(name='${project}',
           'test': [
               'mock',
               'nose',
+              'nose-selecttests',
               'coverage',
               'unittest2',
               'setuptools-flakes',
