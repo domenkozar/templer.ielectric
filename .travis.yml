@@ -7,4 +7,4 @@ install:
   - python bootstrap.py
   - bin/buildout
 script:
-  - bin/nosestests
+  - bin/nosetests

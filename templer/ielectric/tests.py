@@ -85,13 +85,13 @@ class PyramidTempalteTest(BaseTemplateTest):
         )
 
         self.env.run('python bootstrap.py',
-                     cwd=os.path.join(env.cwd, 'proj'),
+                     cwd=os.path.join(self.env.cwd, 'proj'),
                      expect_stderr=True)
         self.env.run('bin/buildout',
-                     cwd=os.path.join(env.cwd, 'proj'),
+                     cwd=os.path.join(self.env.cwd, 'proj'),
                      expect_stderr=True)
         self.env.run('./pre-commit-check.sh',
-                     cwd=os.path.join(env.cwd, 'proj'),
+                     cwd=os.path.join(self.env.cwd, 'proj'),
                      expect_stderr=True)
 
 
