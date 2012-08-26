@@ -28,8 +28,12 @@ class PyramidTempalteTest(BaseTemplateTest):
 
     def test_everything(self):
         result = self.create_template()
+        # see:http://travis-ci.org/#!/iElectric/templer.ielectric/jobs/2242556
+        created_files = set(result.files_created.keys()) - \
+            set(['proj/src/proj.egg-info/paster_plugins.txt'])
+
         self.assertEqual(
-            set(result.files_created.keys()),
+            created_files,
             set([
                 'proj',
                 'proj/bootstrap.py',
@@ -65,7 +69,6 @@ class PyramidTempalteTest(BaseTemplateTest):
                 'proj/src/proj.egg-info/dependency_links.txt',
                 'proj/src/proj.egg-info/entry_points.txt',
                 'proj/src/proj.egg-info/not-zip-safe',
-                'proj/src/proj.egg-info/paster_plugins.txt',
                 'proj/src/proj.egg-info/PKG-INFO',
                 'proj/src/proj.egg-info/requires.txt',
                 'proj/src/proj.egg-info/SOURCES.txt',
