@@ -6,16 +6,24 @@ import shutil
 from scripttest import TestFileEnvironment
 
 
-class PyramidTempalteTest(unittest.TestCase):
+class BaseTemplateTest(unittest.TestCase):
+
     def setUp(self):
         self.tempdir = tempfile.mkdtemp()
         self.addCleanup(shutil.rmtree, self.tempdir)
 
-    def test_everything(self):
         # docs http://pythonpaste.org/scripttest/
-        env = TestFileEnvironment(os.path.join(self.tempdir, 'test-output'), ignore_hidden=False)
+        self.env = TestFileEnvironment(os.path.join(self.tempdir,
+                                                    'test-output'),
+                                       ignore_hidden=False)
+
+
+class PyramidTempalteTest(BaseTemplateTest):
+
+    def test_everything(self):
         root_dir = os.path.join(os.path.dirname(__file__), '../', '../',)
-        result = env.run('%s/bin/paster create -t pyramid proj --no-interactive' % root_dir)
+        result = self.env.run(
+            '%s/bin/paster create -t pyramid proj --no-interactive' % root_dir)
         self.assertEqual(
             set(result.files_created.keys()),
             set([
@@ -76,12 +84,45 @@ class PyramidTempalteTest(unittest.TestCase):
                 ])
         )
 
-        env.run('python bootstrap.py',
-                cwd=os.path.join(env.cwd, 'proj'),
-                expect_stderr=True)
-        env.run('bin/buildout',
-                cwd=os.path.join(env.cwd, 'proj'),
-                expect_stderr=True)
-        env.run('./pre-commit-check.sh',
-                cwd=os.path.join(env.cwd, 'proj'),
-                expect_stderr=True)
+        self.env.run('python bootstrap.py',
+                     cwd=os.path.join(env.cwd, 'proj'),
+                     expect_stderr=True)
+        self.env.run('bin/buildout',
+                     cwd=os.path.join(env.cwd, 'proj'),
+                     expect_stderr=True)
+        self.env.run('./pre-commit-check.sh',
+                     cwd=os.path.join(env.cwd, 'proj'),
+                     expect_stderr=True)
+
+
+class DistributePackageTempalteTest(BaseTemplateTest):
+
+    def test_everything(self):
+        result = self.env.run(
+            'paster create -t distribute_package proj --no-interactive')
+        self.assertEqual(
+            set(result.files_created.keys()),
+            set([
+                'proj',
+                'proj/docs',
+                'proj/.gitignore',
+                'proj/HISTORY.rst',
+                'proj/LICENSE',
+                'proj/MANIFEST.in',
+                'proj/.pep8',
+                'proj/pre-commit-check.sh',
+                'proj/proj',
+                'proj/proj.egg-info',
+                'proj/proj.egg-info/dependency_links.txt',
+                'proj/proj.egg-info/entry_points.txt',
+                'proj/proj.egg-info/not-zip-safe',
+                'proj/proj.egg-info/PKG-INFO',
+                'proj/proj.egg-info/requires.txt',
+                'proj/proj.egg-info/SOURCES.txt',
+                'proj/proj.egg-info/top_level.txt',
+                'proj/proj/__init__.py',
+                'proj/README.rst',
+                'proj/setup.cfg',
+                'proj/setup.py',
+                'proj/.travis.yml',
+                ]))

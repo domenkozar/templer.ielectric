@@ -41,5 +41,6 @@ setup(
     entry_points="""
     [paste.paster_create_template]
     pyramid = templer.ielectric:Pyramid
+    distribute_package = templer.ielectric:DistributePackage
     """,
 )

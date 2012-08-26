@@ -17,14 +17,17 @@ LIST OF TEMPLATES
 
 pyramid
     Opinionated Pyramid skeleton with Buildout staging/production, SQLAlchemy, Travis-CI, ...
+distribute_package
+    Replaces paster's `basic_template` with more modern ideas :-)
 
 
 TODO
 ====
 
-- local command to add new app for pyramid project
-- integrate sqlhelpers+alembic
-- add setuptools structure based on nose-selecttests
-- fabric with staging/production deploy scripts
+- Pyramid template
+    - pyramid_layout?
+    - local command to add new app for pyramid project
+    - integrate sqlhelpers+alembic+https://github.com/lazaret/anuket
+    - fabric with staging/production deploy scripts
 - add django template based on https://github.com/kiberpipa/intranet
 - add plone template based on https://github.com/niteoweb/niteoweb.skel.plone

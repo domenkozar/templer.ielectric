@@ -1,2 +1,2 @@
-graft src/${project}
+graft ${project}
 include *.cfg *.rst *.in LICENSE

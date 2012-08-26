@@ -14,20 +14,18 @@ from templer.core.vars import (
 )
 
 
-class Pyramid(BaseTemplate):
-    _template_dir = 'templates/pyramid'
-    summary = "A Pyramid skeleton"
+class DistributePackage(BaseTemplate):
+    _template_dir = 'templates/distribute'
+    summary = "Python package based on distribute"
     help = """
-    Pyramid skeleton with Buildout, SQLAlchemy, Sphinx, Nose, Travis-CI,
 """
     category = "iElectric set"
     use_cheetah = True
     post_run_msg = """
 Before using your package, you must configure the following:
 
-- Enable travis-ci and readthedocs.org git hook on github
+- Enable travis-ci git hook on github
 
-- Configure database url and sentry dsn in buildout.d/production.cfg
 """
 
     def post(self, command, output_dir, vars):
@@ -36,20 +34,12 @@ Before using your package, you must configure the following:
         shutil.move(source, dist)
         # see https://github.com/collective/templer.core/issues/5
         os.chmod(os.path.join(output_dir, 'pre-commit-check.sh'), 0754)
-        super(Pyramid, self).post(command, output_dir, vars)
+        super(DistributePackage, self).post(command, output_dir, vars)
 
     vars = copy.deepcopy(BaseTemplate.vars)
     vars += [
         StringVar(
-            'projectname',
-            title='Project name',
-            description='Full name of the project',
-            page='Metadata',
-            help="""
-"""
-        ),
-        StringVar(
-            'project',
+            'package',
             title='Package name',
             description='Python package name',
             page='Metadata',
@@ -141,12 +131,5 @@ Common choices here are 'GPL' (for the GNU General Public License),
 %s
 
 """ % BaseTemplate('null').readable_license_options()
-        ),
-        StringVar(
-            'docs_url',
-            title='Full URL to documentation',
-            description='URL of the hosted documentation of the project',
-            page='Metadata',
-            help="""""",
         ),
     ]

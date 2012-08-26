@@ -1,0 +1,29 @@
+${description}
+
+INSTALL
+=======
+
+::
+
+    $ pip install ${package}
+
+USAGE
+=====
+
+DEVELOP
+=======
+
+::
+
+    $ git clone ${repo} ${package}
+    $ cd ${package}
+    $ virtualenv .
+    $ source bin/activate
+    $ python setup.py develop
+    $ easy_install ${package}[test]
+
+RUNNING TESTS
+=============
+
+::
+    $ nosetests
