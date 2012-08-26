@@ -39,7 +39,6 @@ setup(name='${project}',
           'transaction',
           'zope.sqlalchemy',
           'Fabric',
-          'jinja2',
       ],
       extras_require={
           'test': [
@@ -68,6 +67,7 @@ setup(name='${project}',
       main = ${project}:main
       """,
       paster_plugins=['pyramid'],
+      setup_requires="PasteScript",
       include_package_data=True,
       zip_safe=False,
       )
