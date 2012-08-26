@@ -4,7 +4,7 @@ python:
   - 2.7
   - pypy
 install:
-  - python bootstrap.py
+  - python bootstrap.py -d
   - bin/buildout
 script:
   - bin/nosetests

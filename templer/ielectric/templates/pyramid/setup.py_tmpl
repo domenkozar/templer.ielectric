@@ -67,7 +67,6 @@ setup(name='${project}',
       main = ${project}:main
       """,
       paster_plugins=['pyramid'],
-      setup_requires="PasteScript",
       include_package_data=True,
       zip_safe=False,
       )
