@@ -17,13 +17,17 @@ class BaseTemplateTest(unittest.TestCase):
                                                     'test-output'),
                                        ignore_hidden=False)
 
+    def create_template(self):
+        root_dir = os.path.join(os.path.dirname(__file__), '../', '../',)
+        return self.env.run('%s/bin/paster create -t %s proj --no-interactive'
+                            % (root_dir, self.template))
+
 
 class PyramidTempalteTest(BaseTemplateTest):
+    template = 'pyramid'
 
     def test_everything(self):
-        root_dir = os.path.join(os.path.dirname(__file__), '../', '../',)
-        result = self.env.run(
-            '%s/bin/paster create -t pyramid proj --no-interactive' % root_dir)
+        result = self.create_template()
         self.assertEqual(
             set(result.files_created.keys()),
             set([
@@ -71,6 +75,7 @@ class PyramidTempalteTest(BaseTemplateTest):
                 'proj/src/proj/site/__init__.py',
                 'proj/src/proj/site/models.py',
                 'proj/src/proj/site/static',
+                'proj/src/proj/site/static/style.css',
                 'proj/src/proj/site/templates',
                 'proj/src/proj/site/templates/index.jinja2',
                 'proj/src/proj/site/tests',
@@ -96,10 +101,10 @@ class PyramidTempalteTest(BaseTemplateTest):
 
 
 class DistributePackageTempalteTest(BaseTemplateTest):
+    template = 'distribute_package'
 
     def test_everything(self):
-        result = self.env.run(
-            'paster create -t distribute_package proj --no-interactive')
+        result = self.create_template()
         self.assertEqual(
             set(result.files_created.keys()),
             set([
