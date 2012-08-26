@@ -1,0 +1,9 @@
+===
+API
+===
+
+${project} - main package
+-----------------------
+
+.. automodule:: ${project}
+    :members:

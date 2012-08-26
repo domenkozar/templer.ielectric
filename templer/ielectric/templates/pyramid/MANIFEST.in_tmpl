@@ -1,0 +1,2 @@
+graft src/${project}
+include *.cfg *.rst *.in

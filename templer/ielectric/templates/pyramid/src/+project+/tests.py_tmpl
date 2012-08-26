@@ -1,0 +1,6 @@
+from ${project}.testing import BaseIntegrationTest
+
+
+class ConfigurationTest(BaseIntegrationTest):
+    def test_configuration(self):
+        # TODO: test important stuff is configured for pyramid

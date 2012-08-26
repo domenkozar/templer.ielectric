@@ -1,0 +1,72 @@
+# -*- coding: utf-8 -*-
+
+import os
+
+from setuptools import setup
+from setuptools import find_packages
+
+
+def read(*rnames):
+    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+
+
+setup(name='${project}',
+      version='${version}',
+      description='${description}',
+      long_description=read('README.rst') +
+                       read('HISTORY.rst') +
+                       read('LICENSE'),
+      classifiers=[
+          "Programming Language :: Python",
+          "Framework :: Pylons",
+          "Topic :: Internet :: WWW/HTTP",
+          "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
+      ],
+      keywords='web wsgi pylons pyramid',
+      author='${author}',
+      author_email='${author_email}',
+      url='${url}',
+      license='${license}',
+      packages=find_packages('src'),
+      package_dir={'': 'src'},
+      install_requires=[
+          'pyramid',
+          'setuptools',
+          'raven',
+          'pyramid_tm',
+          'pyramid_mailer',
+          'pyramid_jinja2',
+          'transaction',
+          'zope.sqlalchemy',
+          'Fabric',
+          'jinja2',
+      ],
+      extras_require={
+          'test': [
+              'mock',
+              'nose',
+              'coverage',
+              'unittest2',
+              'setuptools-flakes',
+              'pep8',
+              'webtest',
+          ],
+          'development': [
+              'zest.releaser',
+              'Sphinx',
+              'pyramid_debugtoolbar',
+          ],
+          'production': [
+              'psycopg2',
+              'gunicorn',
+              'supervisor',
+          ],
+      },
+      entry_points="""\
+      [paste.app_factory]
+      main = ${project}:main
+      """,
+      paster_plugins=['pyramid'],
+      include_package_data=True,
+      zip_safe=False,
+      )

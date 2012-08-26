@@ -1,0 +1,2 @@
+graft templer
+include *.cfg *.rst *.in LICENSE
