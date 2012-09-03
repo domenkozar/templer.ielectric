@@ -36,7 +36,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'${projectname}'
+project = u'${project}'
 copyright = u'%s, ${author}' % datetime.now().year
 
 # The version info for the project you're documenting, acts as replacement for
