@@ -13,6 +13,9 @@ pyramid.includes =
 default_locale_name = en
 sqlalchemy.url = %(here)s/${project}.sqlite.db
 
+# alembic settings
+script_location = %(here)s/${project}/alembic
+file_template = %%(rev)s_%%(slug)s
 
 [server:main]
 use = egg:waitress#main
@@ -22,7 +25,7 @@ port = 6543
 # Begin logging configuration
 
 [loggers]
-keys = root, ${project}, sqlalchemy
+keys = root, ${project}, sqlalchemy, alembic
 
 [handlers]
 keys = console
@@ -33,6 +36,11 @@ keys = generic
 [logger_root]
 level = INFO
 handlers = console
+
+[logger_alembic]
+level = INFO
+handlers =
+qualname = alembic
 
 [logger_${project}]
 level = DEBUG

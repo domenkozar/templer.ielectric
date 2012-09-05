@@ -65,6 +65,9 @@ setup(name='${project}',
       entry_points="""\
       [paste.app_factory]
       main = ${project}:main
+
+      [console_scripts]
+      ${project}_migrate_database = ${project}.scritps.migrate_database:main
       """,
       paster_plugins=['pyramid'],
       include_package_data=True,

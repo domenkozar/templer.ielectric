@@ -12,6 +12,11 @@ default_locale_name = en
 
 sqlalchemy.url = \${config:sqlalchemy_url}
 
+# alembic settings
+script_location = %(here)s/${project}/alembic
+file_template = %%(rev)s_%%(slug)s
+
+
 [pipeline:main]
 pipeline =
     raven
@@ -29,7 +34,7 @@ port = \${config:gunicorn_port}
 
 #---------- Logging Configuration ----------
 [loggers]
-keys = root, ${project}, sqlalchemy, sentry
+keys = root, ${project}, sqlalchemy, alembic, sentry
 
 [handlers]
 keys = console, sentry
@@ -40,6 +45,11 @@ keys = generic
 [logger_root]
 level = WARN
 handlers = console, sentry
+
+[logger_alembic]
+level = INFO
+handlers =
+qualname = alembic
 
 [logger_sentry]
 level = WARN
