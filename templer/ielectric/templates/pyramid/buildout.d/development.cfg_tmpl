@@ -22,4 +22,4 @@ interpreter = \${buildout:directory}/bin/py
 [development-ini]
 recipe = collective.recipe.template
 input = \${buildout:directory}/etc/development.ini.in
-output = \${buildout:directory}/etc/development.ini
+output = \${buildout:directory}/development.ini

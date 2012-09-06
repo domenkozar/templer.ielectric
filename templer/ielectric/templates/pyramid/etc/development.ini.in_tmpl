@@ -1,4 +1,4 @@
-[app:${project}]
+[app:main]
 use = egg:${project}
 
 pyramid.reload_templates = true
@@ -11,12 +11,12 @@ pyramid.includes =
     pyramid_tm
 
 default_locale_name = en
-sqlalchemy.url = %(here)s/${project}.sqlite.db
+sqlalchemy.url = sqlite://%(here)s/${project}.sqlite.db
 
 cache.memory.backend = dogpile.cache.memory
 
 # alembic settings
-script_location = %(here)s/${project}/alembic
+script_location = %(here)s/src/${project}/alembic
 file_template = %%(rev)s_%%(slug)s
 
 [server:main]

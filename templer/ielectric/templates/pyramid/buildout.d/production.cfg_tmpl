@@ -19,7 +19,7 @@ gunicorn_port = 30500
 [production-ini]
 recipe = collective.recipe.template
 input = \${buildout:directory}/etc/production.ini.in
-output = \${buildout:directory}/etc/prodcution.ini
+output = \${buildout:directory}/production.ini
     
 # ========================================================
 # Set up supervisor to run and supervise backend processes

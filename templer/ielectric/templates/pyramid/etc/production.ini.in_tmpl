@@ -1,4 +1,4 @@
-[app:${project}]
+[app:main]
 use = egg:${project}
 
 pyramid.reload_templates = false
@@ -15,7 +15,7 @@ sqlalchemy.url = \${config:sqlalchemy_url}
 cache.memory.backend = dogpile.cache.memory
 
 # alembic settings
-script_location = %(here)s/${project}/alembic
+script_location = %(here)s/src/${project}/alembic
 file_template = %%(rev)s_%%(slug)s
 
 
