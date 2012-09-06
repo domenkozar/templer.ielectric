@@ -1,4 +1,4 @@
-from ${project}.testing import BaseIntegrationTest
+from .testing import BaseIntegrationTest
 
 
 class ConfigurationTest(BaseIntegrationTest):

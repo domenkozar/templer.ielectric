@@ -13,6 +13,8 @@ pyramid.includes =
 default_locale_name = en
 sqlalchemy.url = %(here)s/${project}.sqlite.db
 
+cache.memory.backend = dogpile.cache.memory
+
 # alembic settings
 script_location = %(here)s/${project}/alembic
 file_template = %%(rev)s_%%(slug)s

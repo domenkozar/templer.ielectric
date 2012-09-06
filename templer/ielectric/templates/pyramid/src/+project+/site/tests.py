@@ -1,4 +1,4 @@
-from ${project}.testing import FunctionalTests
+from .testing import FunctionalTests
 
 
 class ViewsTests(FunctionalTests):

@@ -31,14 +31,16 @@ setup(name='${project}',
       package_dir={'': 'src'},
       install_requires=[
           'pyramid',
-          'setuptools',
-          'raven',
           'pyramid_tm',
           'pyramid_mailer',
           'pyramid_jinja2',
+          'dogpile.cache',
+          'Babel',
           'transaction',
           'zope.sqlalchemy',
           'Fabric',
+          'setuptools',
+          'raven',
       ],
       extras_require={
           'test': [
@@ -62,7 +64,7 @@ setup(name='${project}',
               'supervisor',
           ],
       },
-      entry_points="""\
+      entry_points="""
       [paste.app_factory]
       main = ${project}:main
 
