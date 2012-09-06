@@ -1,3 +1,5 @@
 def includeme(config):
     config.add_static_view('static', '${project}.site:static')
-    config.add_route('home', '/', view='${project}.site.views.index')
+    config.add_jinja2_search_path("${project}.site:templates")
+    config.add_route('home', '/')
+    config.scan('.')

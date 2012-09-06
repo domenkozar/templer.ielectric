@@ -3,4 +3,5 @@ from .testing import BaseIntegrationTest
 
 class ConfigurationTest(BaseIntegrationTest):
     def test_configuration(self):
+        pass
         # TODO: test important stuff is configured for pyramid

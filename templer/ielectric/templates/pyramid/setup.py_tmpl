@@ -58,6 +58,7 @@ setup(name='${project}',
               'zest.releaser',
               'Sphinx',
               'pyramid_debugtoolbar',
+              'waitress',
           ],
           'production': [
               'psycopg2',

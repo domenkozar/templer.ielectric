@@ -19,11 +19,12 @@ class BaseIntegrationTest(BaseUnitTest):
     include_apps = ['${project}']
 
     def setUp(self):
+        super(BaseIntegrationTest, self).setUp()
         for app in self.include_apps:
             self.config.include(app)
 
 
-class FunctionalTests(unittest.TestCase):
+class BaseFunctionalTests(unittest.TestCase):
     mock = mock
 
     def setUp(self):
@@ -31,10 +32,3 @@ class FunctionalTests(unittest.TestCase):
         from webtest import TestApp
         app = main({})
         self.testapp = TestApp(app)
-
-
-class ViewsTest(BaseUnitTest):
-    def test_it(self):
-        from ${project}.site.views import index
-        info = index(self.request)
-        self.assertEqual(info, {})

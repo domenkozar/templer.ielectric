@@ -21,6 +21,7 @@ LIST OF TEMPLATES
 
 pyramid
     Opinionated Pyramid skeleton with:
+
     - Buildout staging/production configuration
     - SQLAlchemy integration
     - Alembic (database migrations)integration
