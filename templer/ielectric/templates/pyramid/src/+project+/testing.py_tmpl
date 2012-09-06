@@ -16,7 +16,7 @@ class BaseUnitTest(unittest.TestCase):
 
 
 class BaseIntegrationTest(BaseUnitTest):
-    include_apps = ['${project}']
+    include_apps = []
 
     def setUp(self):
         super(BaseIntegrationTest, self).setUp()
@@ -28,7 +28,7 @@ class BaseFunctionalTests(unittest.TestCase):
     mock = mock
 
     def setUp(self):
-        from ${project} import main
         from webtest import TestApp
+        from . import main
         app = main({})
         self.testapp = TestApp(app)

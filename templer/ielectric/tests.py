@@ -94,7 +94,6 @@ class PyramidTempalteTest(BaseTemplateTest):
                 'proj/src/proj/site/templates/index.jinja2',
                 'proj/src/proj/site/tests',
                 'proj/src/proj/site/tests/__init__.py',
-                'proj/src/proj/site/tests.py',
                 'proj/src/proj/site/tests/test_views.py',
                 'proj/src/proj/site/views.py',
                 'proj/src/proj/testing.py',

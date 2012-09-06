@@ -1,7 +1,7 @@
-from .testing import BaseIntegrationTest
+from .testing import BaseFunctionalTest
 
 
-class ConfigurationTest(BaseIntegrationTest):
+class ConfigurationTest(BaseFunctionalTest):
     def test_configuration(self):
         pass
         # TODO: test important stuff is configured for pyramid
