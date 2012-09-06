@@ -70,6 +70,7 @@ class PyramidTempalteTest(BaseTemplateTest):
                 'proj/src/proj/alembic/env.py',
                 'proj/src/proj/alembic/script.py.mako',
                 'proj/src/proj/alembic/versions',
+                'proj/src/proj/alembic/versions/b219e55ed26_initial_structure.py',
                 'proj/src/proj.egg-info',
                 'proj/src/proj.egg-info/dependency_links.txt',
                 'proj/src/proj.egg-info/entry_points.txt',
