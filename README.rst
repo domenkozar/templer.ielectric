@@ -40,16 +40,15 @@ TODO
 
 - add bpython
 - Pyramid template
-    - maybe pyramid_layout?
+    - pyramid_layout
     - alembic:
         - write tests
-        - initial migration
+        - docs for initial migration
     - docs how to use this package (http://docs.pylonsproject.org/projects/pyramid_mailer/en/latest/, )
     - pyramid_mailer # TODO: provide patch for printing mailer when in debug mode
-    - http://dogpilecache.readthedocs.org/en/latest/
     - auth + root factory? https://github.com/lazaret/anuket/blob/develop/anuket/models/rootfactory.py 
     - fabric with staging/production deploy scripts
-    - setup a way to detect locales/languages http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/i18n.html?awesome
+    - setup a way to detect locales/languages http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/i18n.html
     - local command to add new app for pyramid project
 - add django template based on https://github.com/kiberpipa/intranet
 - add plone template based on https://github.com/niteoweb/niteoweb.skel.plone
