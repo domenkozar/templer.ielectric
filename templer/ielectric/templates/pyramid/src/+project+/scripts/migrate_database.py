@@ -33,7 +33,8 @@ class MigrateDatabaseCommand(object):
         """ Run the ``migrate`` method or display the parser help message
         if the `config_uri` argument is missing.
 
-        :return: `0 (OK) or 1 (abnormal termination error) or 2 (missing argument error)
+        :return: 0 (OK) or 1 (abnormal termination error)
+                 or 2 (missing argument error)
         """
         if not self.args.config_uri:
             self.parser.print_help()
